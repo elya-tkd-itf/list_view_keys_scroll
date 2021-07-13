@@ -71,7 +71,13 @@ class _MyHomePageState extends State<MyHomePage> {
               key: PageStorageKey(name),
               children: <Widget>[
                 ...data[name].map((e) {
-                  return Image.network(e);
+                  return Container(
+                    height: MediaQuery.of(context).size.width / 2,
+                    decoration: new BoxDecoration(
+                      image: new DecorationImage(image: new AssetImage('assets/images/loading.png'), fit: BoxFit.cover)
+                    ),
+                    child: Image.network(e),
+                  );
                 }).toList()
               ],
             );
